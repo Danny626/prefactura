@@ -2,14 +2,11 @@ package com.albo.soa.entities;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Set;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,10 +29,10 @@ public class Recinto implements Serializable {
 	private String recEstado;
 	@Column(name = "REC_TIPO", length = 10)
 	private String recTipo;
-	@OneToMany(mappedBy = "invRecinto")
+	/* @OneToMany(mappedBy = "invRecinto")
 	private Set<Inventario> inventarioSet;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recinto")
-	private Set<DocArchivo> docArchivoSet;
+	private Set<DocArchivo> docArchivoSet; */
 
 	public Recinto() {
 	}
@@ -92,13 +89,13 @@ public class Recinto implements Serializable {
 		this.recTipo = recTipo;
 	}
 
-	public Set<Inventario> getInventarioSet() {
+/* 	public Set<Inventario> getInventarioSet() {
 		return inventarioSet;
 	}
 
 	public void setInventarioSet(Set<Inventario> inventarioSet) {
 		this.inventarioSet = inventarioSet;
-	}
+	} */
 
 	@Override
 	public int hashCode() {
@@ -126,11 +123,11 @@ public class Recinto implements Serializable {
 		return "com.albo.soa.model.Recinto[ recCod=" + recCod + " ]";
 	}
 
-	public Set<DocArchivo> getDocArchivoSet() {
+/* 	public Set<DocArchivo> getDocArchivoSet() {
 		return docArchivoSet;
 	}
 
 	public void setDocArchivoSet(Set<DocArchivo> docArchivoSet) {
 		this.docArchivoSet = docArchivoSet;
-	}
+	} */
 }

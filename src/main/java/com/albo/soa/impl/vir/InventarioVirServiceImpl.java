@@ -42,4 +42,9 @@ public class InventarioVirServiceImpl implements IInventarioVirService {
 	public long count() {
 		return 0;
 	}
+
+	@Override
+	public List<Inventario> buscar(String gestion, String recinto, String nroReg, String docEmbarque) {
+		return inventarioVirRepo.buscar(gestion, recinto, nroReg, docEmbarque);
+	}
 }

@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.albo.util.EnumUtil;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
@@ -102,10 +103,12 @@ public class Inventario implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "TRA_COD", referencedColumnName = "TRA_COD")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private TratamientoDeposito traCod;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "INV_RECINTO", referencedColumnName = "REC_COD")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Recinto invRecinto;
 
 	@ManyToOne
@@ -116,6 +119,7 @@ public class Inventario implements Serializable {
 	@JoinColumns({ @JoinColumn(name = "REC_COD", referencedColumnName = "REC_COD"),
 			@JoinColumn(name = "ALM_COD", referencedColumnName = "ALM_COD") })
 	@ManyToOne
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Almacen almacen;
 
 	public Inventario() {

@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "ALMACEN", catalog = "", schema = "SOA")
 public class Almacen implements Serializable {
@@ -31,6 +33,7 @@ public class Almacen implements Serializable {
 	private String almSigla;
 	@JoinColumn(name = "REC_COD", referencedColumnName = "REC_COD", nullable = false, insertable = false, updatable = false)
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Recinto recinto;
 
 	public Almacen() {

@@ -48,4 +48,9 @@ public class InventarioAltServiceImpl implements IInventarioAltService {
 		return 0;
 	}
 
+	@Override
+	public List<Inventario> buscar(String gestion, String recinto, String nroReg, String docEmbarque) {
+		return inventarioAltRepo.buscar(gestion, recinto, nroReg, docEmbarque);
+	}
+
 }
